@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class SistemaBancario {
 
     // Struct para representar uma conta bancária
@@ -8,6 +10,7 @@ public class SistemaBancario {
     }
 
     public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
 
         // Array para armazenar as contas (limite de 100 contas por enquanto)
         Conta[] contas = new Conta[100];
@@ -15,17 +18,27 @@ public class SistemaBancario {
 
         // Lógica para criar uma nova conta
         Conta novaConta = new Conta();
-        novaConta.numeroConta = 12345; 
-        novaConta.nomeTitular = "João Silva";
-        novaConta.saldo = 5000.0;
+        System.out.print("Informe o novo número da conta: ");
+        novaConta.numeroConta = teclado.nextInt();
+        
+        // Consumir a quebra de linha pendente
+        teclado.nextLine();
+
+        System.out.print("Informe o nome do titular da conta: ");
+        novaConta.nomeTitular = teclado.nextLine();
+        
+        System.out.print("Informe o saldo da conta: R$");
+        novaConta.saldo = teclado.nextDouble();
 
         // Adicionar a nova conta ao array
         contas[numeroDeContas] = novaConta;
         numeroDeContas++;
 
         // Lógica para realizar um depósito
-        int numeroContaDeposito = 12345;
-        double valorDeposito = 2000.0;
+        System.out.println("Informe o número da conta: ");
+        int numeroContaDeposito = teclado.nextInt() ;
+        System.out.println("Informe o valor do depósito: R$");
+        double valorDeposito = teclado.nextDouble();
 
         for (int i = 0; i < numeroDeContas; i++) {
             if (contas[i].numeroConta == numeroContaDeposito) {
@@ -36,8 +49,10 @@ public class SistemaBancario {
         }
 
         // Lógica para realizar um saque
-        int numeroContaSaque = 12345;
-        double valorSaque = 1000.0;
+        System.out.print("Informe o número da conta: ");
+        int numeroContaSaque = teclado.nextInt();
+        System.out.print("Informe o valor do saque: R$");
+        double valorSaque = teclado.nextDouble();
 
         for (int i = 0; i < numeroDeContas; i++) {
             if (contas[i].numeroConta == numeroContaSaque) {
@@ -60,5 +75,7 @@ public class SistemaBancario {
                 break; // Sair do loop após encontrar a conta
             }
         }
+
+        teclado.close();
     }
 }

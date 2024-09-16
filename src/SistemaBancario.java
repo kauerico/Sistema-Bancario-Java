@@ -34,7 +34,7 @@ public class SistemaBancario {
         contas[numeroDeContas] = novaConta;
         numeroDeContas++;
 
-        // Lógica para realizar um depósito
+        // Lógica para realizar um depósito.
         System.out.println("Informe o número da conta: ");
         int numeroContaDeposito = teclado.nextInt() ;
         System.out.println("Informe o valor do depósito: R$");

@@ -43,7 +43,15 @@ public class SistemaBancario {
                     System.out.print("Informe o saldo inicial da conta: R$");
                     novaConta.saldo = teclado.nextDouble();
                     teclado.nextLine(); // Consumir a quebra de linha pendente
-
+                    
+                    // Adicionar a nova conta ao array
+                    contas[numeroDeContas] = novaConta;
+                    numeroDeContas++;
+                    
+                    System.out.println("\nConta criada com sucesso!");
+                    break;
+                    
+                    
                 case 2:
                     // Realizar um depósito
                     System.out.print("Informe o número da conta para depósito: ");
